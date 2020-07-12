@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Page Title</title>
+    <script type="text/javascript">
+
+    /* Replace #your_subdomain# by the subdomain of a Site in your OneAll account */
+    var oneall_subdomain = 'app-943248-1';
+
+    /* The library is loaded asynchronously */
+    var oa = document.createElement('script');
+    oa.type = 'text/javascript'; oa.async = true;
+    oa.src = '//' + oneall_subdomain + '.api.oneall.com/socialize/library.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(oa, s);
+    </script>
+</head>
+<body>
+<div id="oneall_social_link">
+    <button id="oa_social_login_container">Social SignUp</button>
+</div>
+<script type="text/javascript">
+
+    /* Initialise the asynchronous queue */
+    var _oneall = _oneall || [];
+    var callback_uri = 'localhost:5000/oneall'
+
+    /* You could also do this: */
+    _oneall.push(['*', 'set_providers', ['facebook', 'twitter']]);
+    _oneall.push(['social_login', 'set_popup_usage', 'autodetect']);
+    _oneall.push(['social_login', 'set_callback_uri', callback_uri]);
+    _oneall.push(['social_login', 'attach_onclick_popup_ui', 'oneall_social_link']);
+
+</script>
+</body>
+</html>
